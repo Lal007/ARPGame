@@ -64,6 +64,10 @@ public class GameScreen extends AbstractScreen {
         return hero;
     }
 
+    public BitmapFont getFont24() {
+        return font24;
+    }
+
     @Override
     public void show() {
         this.map = new Map();
@@ -111,7 +115,8 @@ public class GameScreen extends AbstractScreen {
         btnToMenu.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                Gdx.app.exit();
+                ScreenManager.getInstance().changeScreen(ScreenManager.ScreenType.MENU);
+                ScreenManager.getInstance().goToTarget();
             }
         });
 
