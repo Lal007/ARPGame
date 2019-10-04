@@ -38,6 +38,10 @@ public class ScreenManager {
         return camera;
     }
 
+    public GameScreen getGameScreen() {
+        return gameScreen;
+    }
+
     private ScreenManager() {
     }
 
@@ -73,6 +77,9 @@ public class ScreenManager {
             case GAME:
                 targetScreen = gameScreen;
                 Assets.getInstance().loadAssets(ScreenType.GAME);
+                break;
+            case MENU:
+                targetScreen = new MenuScreen(batch);
                 break;
         }
     }
