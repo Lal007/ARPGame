@@ -37,7 +37,7 @@ public class Monster extends Unit implements Poolable {
     public void takeDamage(Unit attacker, int amount, Color color) {
         super.takeDamage(attacker, amount, color);
 
-        if (MathUtils.random(5) == 0){
+        if (MathUtils.random(2) == 0){
             angryTimer = 0;
             this.attacker = attacker;
         }
@@ -94,7 +94,7 @@ public class Monster extends Unit implements Poolable {
             Vector2 attackerPosition = new Vector2().add(attacker.getPosition());
             Vector2 directionToHero = attackerPosition.sub(getPosition()).nor();
             direction = Direction.getDirectionByVector2(directionToHero);
-            tmp.set(position).add(directionToHero.x * stats.getSpeed() * dt, directionToHero.y * stats.getSpeed() * dt);
+            tmp.set(position).add(directionToHero.x * stats.getSpeed() * dt * 2, directionToHero.y * stats.getSpeed() * dt * 2);
         }else{
             tmp.set(position).add(direction.getX() * stats.getSpeed() * dt, direction.getY() * stats.getSpeed() * dt);
         }
